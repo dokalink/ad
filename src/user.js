@@ -32,6 +32,7 @@ module.exports = {
       let {
         firstName,
         lastName,
+        middleName,
         commonName,
         userName,
         password,
@@ -80,7 +81,8 @@ module.exports = {
         userPrincipalName: `${userName}@${this.config.domain}`,
         sAMAccountName: userName,
         objectClass: this.config.defaults.userObjectClass,
-        userPassword: ssha.create(password)
+        userPassword: ssha.create(password),
+        middleName: middleName
       };
 
       this._addObject(`CN=${commonName}`, location, userObject)
